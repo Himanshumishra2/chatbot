@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sarah & John's Wedding - Redirecting...</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #fff5f7 0%, #fed7e2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center;
+        color: #805ad5;
+      }
+      .container {
+        max-width: 600px;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        margin-bottom: 1rem;
+      }
+      p {
+        margin-bottom: 1.5rem;
+      }
+      .button {
+        display: inline-block;
+        background-color: #805ad5;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      .button:hover {
+        background-color: #6b46c1;
+        transform: translateY(-2px);
+      }
+    </style>
+    <!-- Auto redirect to the app -->
+    <meta http-equiv="refresh" content="3;url=./build/index.html">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sarah & John's Wedding</h1>
+      <p>You'll be redirected to our wedding chatbot in a moment...</p>
+      <a href="./build/index.html" class="button">Go to Wedding Chatbot</a>
+    </div>
+
+    <script>
+      // If running on a server with the build directory at the root level,
+      // adjust the redirect path accordingly
+      const isRunningOnServer = window.location.hostname !== 'localhost' && 
+                                 window.location.hostname !== '127.0.0.1';
+      
+      if (isRunningOnServer) {
+        // For deployments where the build folder contents are at the root
+        document.querySelector('meta[http-equiv="refresh"]').content = "3;url=./index.html";
+        document.querySelector('.button').href = "./index.html";
+      }
+    </script>
+  </body>
+</html>
